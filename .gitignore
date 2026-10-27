@@ -1,0 +1,19 @@
+# Virtual environment
+.venv/
+
+# Python caches
+__pycache__/
+.pytest_cache/
+
+# IDE settings
+.idea/
+
+# Test outputs
+test-results/
+traces/
+report.html
+=report.html
+
+# Large or session files
+*.war
+state.json
