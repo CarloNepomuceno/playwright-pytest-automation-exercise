@@ -1,5 +1,7 @@
 # Automation Exercise test framework
 
+![Smoke tests](https://github.com/CarloNepomuceno/playwright-pytest-automation-exercise/actions/workflows/tests.yml/badge.svg)
+
 I built this to practice what I learned in a Playwright + Python course, but on a
 different site than the one used in the lessons. It tests
 https://automationexercise.com, a practice online store, through both the
