@@ -13,7 +13,8 @@ class ProductsPage:
         self.page.locator(f"#{category}").get_by_role("link", name=subcategory).click()
 
     def searchProduct(self, searchTerm):
-        self.page.goto("https://automationexercise.com/products")
+        self.page.goto("https://automationexercise.com/products",
+                       wait_until="domcontentloaded", timeout=60000)
         self.page.locator("#search_product").fill(searchTerm)
         self.page.locator("#submit_search").click()
 

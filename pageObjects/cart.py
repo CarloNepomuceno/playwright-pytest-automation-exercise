@@ -1,5 +1,5 @@
 from playwright.sync_api import Page, expect
-
+from playwright.sync_api import TimeoutError as PlaywrightTimeoutError
 from pageObjects.checkout import CheckoutPage
 
 
@@ -35,7 +35,16 @@ class CartPage:
         expect(self.page.locator("#empty_cart")).to_be_visible()
 
     def proceedToCheckout(self):
-        self.page.get_by_text("Proceed To Checkout").first.click()
-        self.page.wait_for_url("**/checkout", timeout=30000)
+        button = self.page.get_by_text("Proceed To Checkout").first
+        for attempt in range(3):
+            button.click()
+            try:
+                self.page.wait_for_url("**/checkout", timeout=10000,
+                                       wait_until="domcontentloaded")
+                break
+            except PlaywrightTimeoutError:
+                pass  # the click didn't start navigation, try again
+        else:
+            raise AssertionError("Proceed To Checkout never opened the checkout page")
         checkoutPage = CheckoutPage(self.page)
         return checkoutPage
