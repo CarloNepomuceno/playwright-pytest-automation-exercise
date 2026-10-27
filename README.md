@@ -40,7 +40,7 @@ sometimes cover buttons and break clicks. There's also a `--browser_name` option
 
 ```
 Features/         purchase.feature
-data/             credentials.json (fake test user data only)
+data/             user_profiles.json (fake test user data only)
 pageObjects/      login, home, products, cart, checkout, payment, signup
 utils/            apiBase.py
 conftest.py       fixtures and options
