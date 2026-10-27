@@ -59,13 +59,13 @@ pip install -r requirements.txt
 playwright install
 ```
 
-Smoke tests only (4 tests, about 25 seconds):
+Smoke tests only (4 tests, about 15 seconds):
 
 ```
 pytest -m smoke --run_headless
 ```
 
-Everything, in parallel, with an HTML report (about 100 seconds):
+Everything, in parallel, with an HTML report (about a minute):
 
 ```
 pytest -n 2 --reruns 1 --run_headless --html=report.html --self-contained-html
